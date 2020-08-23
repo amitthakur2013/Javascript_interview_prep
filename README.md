@@ -133,5 +133,45 @@ var peopleConstructor= function(name, age, state) {
  person1.printPerson();
  person2.printPerson();
 
+/*Prototype Pattern */
+
+var peopleProto = function() {
+
+}
+
+peopleProto.prototype.age=0;
+peopleProto.prototype.name="no name";
+peopleProto.prototype.city="no city";
+
+peopleProto.prototype.printPerson = function () {
+	console.log(this.age+" "+this.name+" "+this.city);
+};
+
+var person1 = new peopleProto();
+person1.age=23
+person1.name="Amit"
+person1.city="CA"
+
+person1.printPerson();
+
+
+//In reality, the only true difference between prototype and __proto__ is that the former is a property of a class constructor, while the latter is a property of a class instance.
+
+/*DYNAMIC PROTOTYPE PATTERN*/
+var peopledynamicproto = function(name, age, state) {
+	this.name=name;
+	this.age=age;
+	this.state=state;		
+
+	if(typeof this.printPerson !== 'function'){
+		peopledynamicproto.prototype.printPerson = function () {
+		console.log(this.age+" "+this.name+" "+this.state);
+		};
+		}
+}
+
+var person1 = new peopledynamicproto("Amit","21","California");
+
+person1.printPerson();
 
 
