@@ -116,10 +116,22 @@ Dynamic Prototype Pattern
  person2.printPerson();
 
  /*CONSTRUCTOR PATTERN*/
+ 
+var peopleConstructor= function(name, age, state) {
+ 	this.name=name;
+ 	this.age=age;
+ 	this.state=state;
 
- var peop
+ 	this.printPerson= function() {
+ 		console.log(this.name+ ", "+ this.age+", "+this.state);
+ 	};
+ };
 
+ var person1 = new peopleConstructor("Amit",22,"India");
+ var person2= new peopleConstructor("Ankit",22,"India");
 
+ person1.printPerson();
+ person2.printPerson();
 
 
 
