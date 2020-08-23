@@ -175,3 +175,35 @@ var person1 = new peopledynamicproto("Amit","21","California");
 person1.printPerson();
 
 
+/* Difference between CALL APPLY and BIND */
+
+var obj={num:2}
+
+var addToThis=function(a) {
+	return this.num+a;
+}
+
+console.log(addToThis.call(obj, 3)); // functionname.call(obj,functionargs)
+
+/*Use of apply*/
+var obj={num:2}
+
+var addToThis=function(a,b,c) {
+	return this.num+a+b+c;
+};
+
+var arr=[1,2,3]
+console.log(addToThis.apply(obj,arr));
+
+/*Use of Bind*/
+
+var obj={num:2}
+
+var addToThis=function(a,b,c) {
+	return this.num+a+b+c;
+};
+
+var bound=addToThis.bind(obj)
+console.log(bound(1,2,4))
+
+
